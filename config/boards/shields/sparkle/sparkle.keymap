@@ -3,17 +3,19 @@
 #include <dt-bindings/zmk/bt.h> // Bluetooth関連のマクロ定義
 #include <dt-bindings/zmk/outputs.h> // 出力先の切り替えなどの定義
 
-#define BASE 0 // レイヤー0: 通常キー
-#define NAV  1 // レイヤー1: ナビゲーション用
-#define SYM  2 // レイヤー2: 記号入力用
-#define ADJ  3 // レイヤー3: 調整・設定用
+#define BASE 0        // レイヤー0: 通常キー
+#define JPN  1        //NAV  1 // レイヤー1: ナビゲーション用
+#define SYM  2        //SYM  2 // レイヤー2: 記号入力用
+#define BOTH 3        //ADJ  3 // レイヤー3: 調整・設定用
 
+/*  長押し、短押しの設定
 &mt { // Mod-Tapの設定
   quick-tap-ms = <100>; // クイックタップ判定時間（ms）
   global-quick-tap;     // 全体に適用
   flavor = "tap-preferred"; // タップ優先
   tapping-term-ms = <170>; // タップとして認識される最大時間
 };
+*/
 
 / {
     combos { // コンボ（複数キー同時押し）設定
