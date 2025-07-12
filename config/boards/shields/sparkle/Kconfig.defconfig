@@ -1,0 +1,19 @@
+# Copyright (c) 2022 The ZMK Contributors
+# SPDX-License-Identifier: MIT  # オープンソースのMITライセンスに基づく
+
+if SHIELD_TOTEM_LEFT  # ビルド時に「totem_left」シールドが選ばれている場合
+
+config ZMK_KEYBOARD_NAME
+    default "TOTEM"  # キーボード名を"Totem"として定義（Studio表示用など）
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y  # 左側を「中央側（ホスト）」として動作させる
+
+endif  # if条件終了
+
+if SHIELD_TOTEM_LEFT || SHIELD_TOTEM_RIGHT  # 左右どちらかのtotemシールドが選択されているとき
+
+config ZMK_SPLIT
+    default y  # この構成は分割（Split）キーボードとして動作する
+
+endif  # if条件終了
