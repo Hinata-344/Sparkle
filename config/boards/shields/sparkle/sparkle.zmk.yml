@@ -1,8 +1,8 @@
 file_format: "1"  # 設定ファイルのフォーマットバージョン。ZMK では通常 "1"
-id: totem          # このシールドの識別子（ZMK内部で使われる）
-name: TOTEM        # シールドの表示名（ユーザー向け）
+id: sparkle          # このシールドの識別子（ZMK内部で使われる）
+name: SPARKLE        # シールドの表示名（ユーザー向け）
 type: shield       # このファイルはシールド定義
-url: https://github.com/GEIGEIGEIST/TOTEM  # リポジトリURL（任意）
+url: https://github.com/Hinata-344/Sparkle# リポジトリURL（任意）
 
 requires: [seeeduino_xiao_ble]  # このシールドが依存するボード。ここではXIAO BLE
 
@@ -10,5 +10,5 @@ features:
   - keys  # キー入力を持つシールドであることを明示
 
 siblings:
-  - totem_left     # 分割キーボードの左側シールドとして認識される
-  - totem_right    # 分割キーボードの右側シールドとして認識される
+  - sparkle_left     # 分割キーボードの左側シールドとして認識される
+  - sparkle_right    # 分割キーボードの右側シールドとして認識される
