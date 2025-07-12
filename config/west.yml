@@ -1,13 +1,11 @@
-　manifest:
+manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware  # リモートリポジトリのベースURL
-
+      url-base: https://github.com/zmkfirmware
   projects:
-    - name: zmk                              # プロジェクト名
-      remote: zmkfirmware                    # 使用するリモート名（上記のzmkfirmware）
-      revision: main                        # ブランチやコミットを指定（ここではmainブランチ）
-      import: app/west.yml                  # サブマニフェストをインポートしてさらに管理
-
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
   self:
-    path: config                           # このmanifestの自身のルートパス（configディレクトリ）
+    path: config
