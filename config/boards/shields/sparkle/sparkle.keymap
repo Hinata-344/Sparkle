@@ -18,6 +18,8 @@
 */
 
 / {
+
+    /*
     combos { // コンボ（複数キー同時押し）設定
         compatible = "zmk,combos";
         combo_esc {
@@ -39,6 +41,8 @@
                 , <&macro_tap &kp G &kp I &kp F>; // "GIF"入力
         };
     };
+    */
+
 
     keymap {
         compatible = "zmk,keymap";
@@ -46,40 +50,36 @@
         base_layer {
             label= "BASE"; // 通常レイヤー
             bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp G           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
-                &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp D           &kp H       &mt RSHFT N &mt RCTRL E &mt RALT I  &mt RGUI O
-                &kp Z       &kp Z       &kp X       &kp C       &kp V           &kp B       &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH &kp FSLH
-                                     &kp TAB     &kp TAB     &lt NAV SPACE   &lt SYM RET &kp BSPC    &kp BSPC
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
             >;
         };
 
-        nav_layer {
-            label= "NAVI"; // ナビゲーション系
+        jpn_layer {
+            label= "JPN"; // ナビゲーション系
             bindings = <
-                &kp ESC     &bt BT_CLR  &kp UP      &kp EQUAL   &kp LBRC        &kp RBRC    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS
-                &kp LSHFT   &kp LEFT    &kp DOWN    &kp RIGHT   &kp LBKT        &kp RBKT    &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
-                &trans      &kp DEL     &kp PG_UP   &kp CAPS    &kp PG_DN       &kp LPAR    &kp RPAR    &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_MULTIPLY &trans
-                                     &trans      &trans      &trans          &mo ADJ     &kp KP_N0   &trans
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
             >;
         };
 
-        sim_layer {
+        sym_layer {
             label= "SYM"; // 記号・音声操作レイヤー
             bindings = <
-                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp RA(U)   &kp SQT     &kp DQT
-                &kp RA(A)   &trans      &kp RA(S)   &trans      &trans          &kp C_MUTE  &kp LS(RA(N4)) &kp RA(N5) &kp RA(N4) &kp RA(O)
-                &trans      &kp RA(F18) &kp RA(F19) &trans      &trans          &trans      &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV &kp C_NEXT &kp BSLH &trans
-                                     &trans      &gif        &mo ADJ         &trans      &kp C_PP     &trans
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
             >;
         };
 
-        adjust_layer {
-            label= "ADJ"; // システム調整系レイヤー
+        both_layer {
+            label= "BOTH"; // システム調整系レイヤー
             bindings = <
-                &sys_reset  &bt BT_CLR  &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_NXT  &trans       &trans      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11
-                &trans      &trans      &bt BT_PRV   &trans      &trans          &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F10   &trans
-                                     &trans      &trans      &trans          &trans      &trans      &trans
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
             >;
         };
     };
