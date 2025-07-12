@@ -1,153 +1,86 @@
-#include <behaviors.dtsi>           // ZMKのビヘイビア関連定義の読み込み
-#include <dt-bindings/zmk/keys.h>  // キーコード定義の読み込み
-#include <dt-bindings/zmk/bt.h>    // Bluetooth関連定義の読み込み
-#include <dt-bindings/zmk/outputs.h> // 出力関連定義の読み込み
+#include <behaviors.dtsi> // ZMKの標準的なビヘイビア定義を読み込み
+#include <dt-bindings/zmk/keys.h> // キーコード定義のヘッダー
+#include <dt-bindings/zmk/bt.h> // Bluetooth関連のマクロ定義
+#include <dt-bindings/zmk/outputs.h> // 出力先の切り替えなどの定義
 
-// レイヤー番号定義（わかりやすく名前付き定数にしている）
-#define BASE 0
-#define NAV  1
-#define SYM  2
-#define ADJ  3
-#define TVP1 4
-#define TVP2 5
+#define BASE 0        // レイヤー0: 通常キー
+#define JPN  1        //NAV  1 // レイヤー1: ナビゲーション用
+#define SYM  2        //SYM  2 // レイヤー2: 記号入力用
+#define BOTH 3        //ADJ  3 // レイヤー3: 調整・設定用
 
-// モディファイア付きキーのタップ判定設定
-&mt {
-  quick-tap-ms = <100>;         // クイックタップの最大時間 (100ms以内ならタップ扱い)
-  global-quick-tap;             // 全体でクイックタップを有効化
-  flavor = "tap-preferred";     // タップ優先モード
-  tapping-term-ms = <170>;      // タッピング判定時間
+/*  長押し、短押しの設定
+&mt { // Mod-Tapの設定
+  quick-tap-ms = <100>; // クイックタップ判定時間（ms）
+  global-quick-tap;     // 全体に適用
+  flavor = "tap-preferred"; // タップ優先
+  tapping-term-ms = <170>; // タップとして認識される最大時間
 };
+*/
 
-&{  // デバイスツリーのルートノード
+/ {
 
-    combos {
-        compatible = "zmk,combos";  // コンボ機能を有効化
-
+    /*
+    combos { // コンボ（複数キー同時押し）設定
+        compatible = "zmk,combos";
         combo_esc {
-            timeout-ms = <50>;       // コンボ判定時間 50ms以内
-            key-positions = <0 1>;   // キー位置 0 と 1 の同時押し
-            bindings = <&kp ESC>;    // 結果はESCキー
-        };
-
-        combo_tvp {
-            timeout-ms = <100>;           // 100ms以内の同時押し判定
-            key-positions = <11 12 13>;  // キー位置11,12,13の同時押し
-            bindings = <&tog TVP1>;      // TVP1レイヤーのトグル切り替え
+            timeout-ms = <50>; // 同時押しと見なす時間幅
+            key-positions = <0 1>; // QとW
+            bindings = <&kp ESC>; // ESCを出力
         };
     };
 
-    macros {
+    macros { // マクロ定義
         gif: gif {
-            label = "giphy";                       // マクロの名前
-            compatible = "zmk,behavior-macro";    // マクロ動作を指定
-            #binding-cells = <0>;                  // 引数なし
-
-            // マクロの内容：Shift押しながら N2 → Shift離す → GIFの文字入力
+            label = "giphy";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>; // マクロに引数はなし
             bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp N2>
-                , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp G &kp I &kp F>
-                ;
+                = <&macro_press &kp LSHFT> // Shift押下
+                , <&macro_tap &kp N2>       // 数字2入力
+                , <&macro_release &kp LSHFT> // Shift解放
+                , <&macro_tap &kp G &kp I &kp F>; // "GIF"入力
         };
     };
+    */
+
 
     keymap {
-        compatible = "zmk,keymap";  // キーマップデバイスとして定義
+        compatible = "zmk,keymap";
 
-        // ────────────── Base Layer ──────────────
         base_layer {
-            label= "BASE";          // レイヤーの表示名
-
+            label= "BASE"; // 通常レイヤー
             bindings = <
-
-                // 左手側 5列
-                &kp Q       &kp W       &kp F       &kp P       &kp G
-                &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp D
-                &kp Q       &kp Z       &kp X       &kp C       &kp V
-                                        &kp DEL   &lt NAV TAB   &kp SPACE
-
-                // 右手側 6列
-                &kp J       &kp L       &kp U       &kp Y       &kp SEMI
-                &kp H       &mt RSHFT N &mt RCTRL E &mt RALT I  &mt RGUI O
-                &kp B       &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp BSLH
-                                        &kp RET   &lt SYM ESC   &kp BSPC
-                >;
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
+            >;
         };
 
-        // ────────────── Navigation Layer ──────────────
-        nav_layer {
-            label= "NAVI";
-
+        jpn_layer {
+            label= "JPN"; // ナビゲーション系
             bindings = <
-
-                &kp ESC     &bt BT_CLR  &kp UP      &kp EQUAL   &kp LBRC
-                &kp RBRC    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS
-                &kp LSHFT   &kp LEFT    &kp DOWN    &kp RIGHT   &kp LBKT
-                &kp RBKT    &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
-                &trans      &kp DEL     &kp PG_UP   &kp CAPS    &kp PG_DN
-                &kp LPAR    &kp RPAR    &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_MULTIPLY &trans
-                                        &trans      &trans      &trans          &mo ADJ     &kp KP_N0   &trans
-                >;
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
+            >;
         };
 
-        // ────────────── Symbol Layer ──────────────
-        sim_layer {
-            label= "SYM";
-
+        sym_layer {
+            label= "SYM"; // 記号・音声操作レイヤー
             bindings = <
-
-                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT
-                &kp CARET   &kp AMPS    &kp RA(U)   &kp SQT     &kp DQT
-                &kp RA(A)   &trans      &kp RA(S)   &trans      &trans
-                &kp C_MUTE  &kp LS(RA(N4)) &kp RA(N5) &kp RA(N4)   &kp RA(O)
-                &trans      &kp RA(F18) &kp RA(F19) &trans      &trans      &trans
-                &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV &kp C_NEXT  &kp BSLH   &trans
-                                        &trans      &gif        &mo ADJ         &trans      &kp C_PP    &trans
-                >;
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
+            >;
         };
 
-        // ────────────── Adjust Layer ──────────────
-        adjust_layer {
-            label= "ADJ";
-
+        both_layer {
+            label= "BOTH"; // システム調整系レイヤー
             bindings = <
-
-                &sys_reset  &bt BT_CLR &out OUT_TOG &trans      &trans
-                &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_NXT  &trans      &trans      &trans
-                &trans      &kp F4      &kp F5      &kp F6      &kp F11
-                &trans      &trans      &bt BT_PRV  &trans      &trans
-                &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans
-                                        &trans      &trans      &trans          &trans      &trans      &trans
-                >;
-        };
-
-        // ────────────── TVP 1 Layer ──────────────
-        tvp1_layer {
-            label= "TVP 1";
-
-            bindings = <
-
-                &kp TAB     &kp I       &kp LC(LALT) &kp O      &kp LC(F20)     &none       &none       &none       &none       &none
-                &lt TVP2 L  &kp LEFT    &kp LALT    &kp RIGHT   &kp SPACE       &none       &none       &none       &none       &none
-                &kp J       &kp LSHFT   &kp LC(C)   &kp BSPC    &kp LC(V)   &kp LC(F19)     &none       &none       &none       &none       &none
-                                        &trans      &kp LC(F14) &kp LC(F13)     &none       &none       &none
-                >;
-        };
-
-        // ────────────── TVP 2 Layer ──────────────
-        tvp2_layer {
-            label= "TVP 2";
-
-            bindings = <
-
-                &kp LC(F18) &kp LS(I)  &kp LS(HOME) &kp LS(O)   &kp LS(F)       &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &trans      &kp LS(LEFT) &kp LC(F17) &kp LS(RIGHT) &kp RET      &trans      &kp F4      &kp F5      &kp F6      &kp F11
-                &trans      &kp J       &kp LS(C)   &kp LC(F16) &kp LS(V)   &kp LC(F15)     &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans
-                                        &trans      &kp LC(F12) &kp LC(F11)     &trans      &trans      &trans
-                >;
+                    &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp INT6     &kp KP_DOT   &kp RPAR     &kp RCTRL
+            >;
         };
     };
 };
