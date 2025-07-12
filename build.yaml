@@ -1,6 +1,7 @@
 include:
+  - board: seeeduino_xiao_ble   # ボード名（Seeeduino XIAO BLE）
+    shield: totem_left          # 左側シールド（totem_left）を含める
   - board: seeeduino_xiao_ble
-    shield: totem_left
-  - board: seeeduino_xiao_ble
-    shield: totem_right
+    shield: totem_right         # 右側シールド（totem_right）を含める
 # there is no settingsreset (needed) for the XIAO
+# XIAOには settings_reset（リセット用のビヘイビア）はない（必要なものは無い）
