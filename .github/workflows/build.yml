@@ -1,5 +1,5 @@
-on: [push, pull_request, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]  # push、PR、手動実行でワークフローが走る
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main  # ZMK公式のビルドワークフローを再利用（ZMKのmainブランチから）
