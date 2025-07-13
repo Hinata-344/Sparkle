@@ -9,13 +9,13 @@
 // キースキャン（kscan）ノードに対する列ピンの割り当て
 // これはSeeeduino XIAO BLEのD4, D5, D10, D9, D8ピンを列に使用するという意味
 &kscan0 {
-    col-gpios = <
-        &xiao_d 3 GPIO_ACTIVE_HIGH   // D4ピン：論理HIGHで有効
-        &xiao_d 4 GPIO_ACTIVE_HIGH   // D5ピン
-        &xiao_d 5 GPIO_ACTIVE_HIGH  // D10ピン
-        &xiao_d 6 GPIO_ACTIVE_HIGH   // D9ピン
-        &xiao_d 7 GPIO_ACTIVE_HIGH   // D8ピン
-        &xiao_d 8 GPIO_ACTIVE_HIGH   // D9ピン
-        &xiao_d 9 GPIO_ACTIVE_HIGH   // D8ピン
-    >;
+    col-gpios 
+        = <&xiao_d 3 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 4 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 5 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 6 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 7 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
+        ;
 };
