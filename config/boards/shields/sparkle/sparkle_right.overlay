@@ -4,24 +4,30 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "sparkle.dtsi"  // キー配列やピン定義が含まれているローカルファイルをインクルード
+#include "sparkle.dtsi"  // キーマトリクスや transform 設定の共通部分
 
-// デフォルトのマトリクス変換設定にオフセットを適用
-// 左右分割キーボードの片側などで、列の開始位置をずらすときに使用
+// デフォルトのマトリクス変換設定にオフセットを適用（右側は7列分ずらす）
 &default_transform {
-    col-offset = <7>;  // 列のインデックスを +5 ずらす
+    col-offset = <7>;
 };
 
-// キースキャンの GPIO 列定義
-// キーマトリクスの列ピンに、Seeeduino XIAO BLE の D4, D5, D10, D9, D8 を使用
+// kscan0 に列ピンと行ピンを設定
 &kscan0 {
-    col-gpios 
-        = <&xiao_d 9  GPIO_ACTIVE_HIGH>
-        , <&xiao_d 8  GPIO_ACTIVE_HIGH>
-        , <&xiao_d 7  GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 6  GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 5  GPIO_ACTIVE_HIGH>
-        , <&xiao_d 3  GPIO_ACTIVE_HIGH>
-        , <&xiao_d 4  GPIO_ACTIVE_HIGH>
-        ;
+    // 列ピン（右手側の7列分）
+    col-gpios =
+        <&xiao_d 9  GPIO_ACTIVE_HIGH>,
+        <&xiao_d 8  GPIO_ACTIVE_HIGH>,
+        <&xiao_d 7  GPIO_ACTIVE_HIGH>,
+        <&xiao_d 6  GPIO_ACTIVE_HIGH>,
+        <&xiao_d 5  GPIO_ACTIVE_HIGH>,
+        <&xiao_d 3  GPIO_ACTIVE_HIGH>,
+        <&xiao_d 4  GPIO_ACTIVE_HIGH>;
+
+    // 🔽 ここを追加：右手側の行ピン（例：D0〜D2）
+    row-gpios =
+        <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+
+    diode-direction = "col2row";  // ダイオードの向き
 };
