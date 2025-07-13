@@ -11,6 +11,16 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif  # if条件終了
 
+if SHIELD_SPARKLE_RIGHT  # ビルド時に「totem_left」シールドが選ばれている場合
+
+config ZMK_KEYBOARD_NAME
+    default "SPARKLE"  # キーボード名を"Totem"として定義（Studio表示用など）
+
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    default y  # 左側を「中央側（ホスト）」として動作させる
+
+endif  # if条件終了
+
 if SHIELD_SPARKLE_LEFT || SHIELD_SPARKLE_RIGHT  # 左右どちらかのtotemシールドが選択されているとき
 
 config ZMK_SPLIT
