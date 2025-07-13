@@ -15,13 +15,13 @@
 // キースキャンの GPIO 列定義
 // キーマトリクスの列ピンに、Seeeduino XIAO BLE の D4, D5, D10, D9, D8 を使用
 &kscan0 {
-    col-gpios = <
-        &xiao_d 9  GPIO_ACTIVE_HIGH  // 列1: D8 ピン
-        &xiao_d 8  GPIO_ACTIVE_HIGH  // 列2: D9 ピン
-        &xiao_d 7  GPIO_ACTIVE_HIGH  // 列3: D10ピン
-        &xiao_d 6  GPIO_ACTIVE_HIGH  // 列4: D5 ピン
-        &xiao_d 5  GPIO_ACTIVE_HIGH  // 列5: D4 ピン
-        &xiao_d 4  GPIO_ACTIVE_HIGH  // 列4: D5 ピン
-        &xiao_d 3  GPIO_ACTIVE_HIGH  // 列5: D4 ピン
-    >;
+    col-gpios 
+        = <&xiao_d 9  GPIO_ACTIVE_HIGH>
+        , <&xiao_d 8  GPIO_ACTIVE_HIGH>
+        , <&xiao_d 7  GPIO_ACTIVE_HIGH> 
+        , <&xiao_d 6  GPIO_ACTIVE_HIGH> 
+        , <&xiao_d 5  GPIO_ACTIVE_HIGH>
+        , <&xiao_d 4  GPIO_ACTIVE_HIGH>
+        , <&xiao_d 3  GPIO_ACTIVE_HIGH>
+        ;
 };
