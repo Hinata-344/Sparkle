@@ -35,7 +35,7 @@
             >;
         };
 
-        sym_layer {
+        sim_layer {
             label= "SYM"; // 記号・音声操作レイヤー
             bindings = <
                     &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
