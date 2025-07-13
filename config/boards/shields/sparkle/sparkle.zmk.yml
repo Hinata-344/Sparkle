@@ -12,4 +12,3 @@ features:
 siblings:
   - sparkle_left     # 分割キーボードの左側シールドとして認識される
   - sparkle_right    # 分割キーボードの右側シールドとして認識される
-  - settings_reset
