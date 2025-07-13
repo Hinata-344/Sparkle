@@ -1,7 +1,7 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT  # オープンソースのMITライセンスに基づく
 
-if SHIELD_SPARKLE_LEFT  # ビルド時に「totem_left」シールドが選ばれている場合
+if SHIELD_SPARKLE_RIGHT  # ビルド時に「totem_left」シールドが選ばれている場合
 
 config ZMK_KEYBOARD_NAME
     default "SPARKLE"  # キーボード名を"Totem"として定義（Studio表示用など）
