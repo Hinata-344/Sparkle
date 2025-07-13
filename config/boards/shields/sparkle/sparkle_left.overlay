@@ -1,29 +1,27 @@
-/*
- * Copyright (c) 2022 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
+#include "sparkle.dtsi"
 
-#include "sparkle.dtsi"  // 別ファイルに記述された行列ピン等の定義をインクルード
+&default_transform {
+    col-offset = <0>; // 左はそのまま
+};
 
-// キースキャン（kscan）ノードに対する列ピンの割り当て
-// これはSeeeduino XIAO BLEのD4, D5, D10, D9, D8ピンを列に使用するという意味
-/ {
+&{
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN_LEFT";
         diode-direction = "col2row";
 
-        row-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        row-gpios =
+            <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-        col-gpios = <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        col-gpios =
+            <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 };
