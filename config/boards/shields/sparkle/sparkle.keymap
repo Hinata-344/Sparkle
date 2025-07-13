@@ -8,40 +8,10 @@
 #define SYM  2        //SYM  2 // レイヤー2: 記号入力用
 #define BOTH 3        //ADJ  3 // レイヤー3: 調整・設定用
 
-/*  長押し、短押しの設定
-&mt { // Mod-Tapの設定
-  quick-tap-ms = <100>; // クイックタップ判定時間（ms）
-  global-quick-tap;     // 全体に適用
-  flavor = "tap-preferred"; // タップ優先
-  tapping-term-ms = <170>; // タップとして認識される最大時間
-};
-*/
+
 
 / {
 
-    /*
-    combos { // コンボ（複数キー同時押し）設定
-        compatible = "zmk,combos";
-        combo_esc {
-            timeout-ms = <50>; // 同時押しと見なす時間幅
-            key-positions = <0 1>; // QとW
-            bindings = <&kp ESC>; // ESCを出力
-        };
-    };
-
-    macros { // マクロ定義
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; // マクロに引数はなし
-            bindings
-                = <&macro_press &kp LSHFT> // Shift押下
-                , <&macro_tap &kp N2>       // 数字2入力
-                , <&macro_release &kp LSHFT> // Shift解放
-                , <&macro_tap &kp G &kp I &kp F>; // "GIF"入力
-        };
-    };
-    */
 
 
     keymap {
