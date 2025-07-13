@@ -1,33 +1,27 @@
-/*
- * Copyright (c) 2022 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
+#include "sparkle.dtsi"
 
-#include "sparkle.dtsi"  // キーマトリクスや transform 設定の共通部分
-
-// デフォルトのマトリクス変換設定にオフセットを適用（右側は7列分ずらす）
 &default_transform {
-    col-offset = <7>;
+    col-offset = <7>; // 右は7列目から始める
 };
 
-// kscan0 に列ピンと行ピンを設定
-&kscan0 {
-    // 列ピン（右手側の7列分）
-    col-gpios =
-        <&xiao_d 9  GPIO_ACTIVE_HIGH>,
-        <&xiao_d 8  GPIO_ACTIVE_HIGH>,
-        <&xiao_d 7  GPIO_ACTIVE_HIGH>,
-        <&xiao_d 6  GPIO_ACTIVE_HIGH>,
-        <&xiao_d 5  GPIO_ACTIVE_HIGH>,
-        <&xiao_d 3  GPIO_ACTIVE_HIGH>,
-        <&xiao_d 4  GPIO_ACTIVE_HIGH>;
+&{
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN_RIGHT";
+        diode-direction = "col2row";
 
-    // 🔽 ここを追加：右手側の行ピン（例：D0〜D2）
-    row-gpios =
-        <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        row-gpios =
+            <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-    diode-direction = "col2row";  // ダイオードの向き
+        col-gpios =
+            <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+    };
 };
