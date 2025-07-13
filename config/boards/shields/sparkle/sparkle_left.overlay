@@ -4,7 +4,7 @@
     col-offset = <0>; // 左はそのまま
 };
 
-&{
+/ {
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN_LEFT";
