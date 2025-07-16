@@ -1,5 +1,4 @@
 #include <dt-bindings/zmk/matrix_transform.h>  // キーマトリクス変換に使うマクロ（RC(row, col)など）を定義
-#include "keycode_japanese.h"
 
 / {
     chosen {
