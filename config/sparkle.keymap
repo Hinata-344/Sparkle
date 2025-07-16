@@ -9,6 +9,8 @@
 #define BOTH 3        //ADJ  3 // レイヤー3: 調整・設定用
 
 
+#define JP_COMMA COMMA        // ,
+#define JP_DOT   DOT          // .
 
 / {
 
