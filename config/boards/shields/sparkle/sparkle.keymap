@@ -2,7 +2,6 @@
 #include <dt-bindings/zmk/keys.h> // キーコード定義のヘッダー
 #include <dt-bindings/zmk/bt.h> // Bluetooth関連のマクロ定義
 #include <dt-bindings/zmk/outputs.h> // 出力先の切り替えなどの定義
-#include "keycode_japanese.h"
 
 #define BASE 0        // レイヤー0: 通常キー
 #define JPN  1        //NAV  1 // レイヤー1: ナビゲーション用
