@@ -29,17 +29,17 @@
             label= "JPN"; // ナビゲーション系
             bindings = <
                     &kp ESC       &kp Q        &kp W        &kp E        &kp R        &kp T        &kp LSHIFT       &mo SYM       &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LANG1
-                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
-                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp KP_COMMA &kp KP_DOT   &kp RPAR     &kp RCTRL
+                    &kp LEFT_ALT  &kp A        &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &mt LSHIFT LBRC     &kp LANG2
+                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp COMMA    &kp DOT      &mt LSHIFT RBRC     &kp RCTRL
             >;
         };
 
         sim_layer {
             label= "SYM"; // 記号・音声操作レイヤー
             bindings = <
-                    &kp ESC       &kp N1        &kp N2       &kp N3       &kp N4        &kp N5      &kp LSHIFT       &mo SYM       &kp N6        &kp N7        &kp N8       &kp N9       &kp N0      &kp LANG1
-                    &kp LEFT_ALT  &kp EXCL       &kp S        &kp D        &kp F        &kp G        &kp SPACE        &kp ENTER     &kp H        &kp J        &kp K        &kp L        &kp LPAR     &kp LANG2
-                    &kp LEFT_GUI  &kp Z        &kp X        &kp C        &kp V        &kp B        &kp TAB          &kp BACKSPACE &kp N        &kp M        &kp KP_COMMA &kp KP_DOT   &kp RPAR     &kp RCTRL
+                    &kp ESC       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp LSHIFT       &none       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp LANG1
+                    &kp LEFT_ALT  &kp EXCL        &kp ASTRK        &kp PLUS        &kp EQUAL        &kp PIPE        &kp SPACE        &kp ENTER     &kp LBKT        &kp LT        &kp SEMI    &kp COLON        &kp LBRC     &kp LANG2
+                    &kp LEFT_GUI  &kp QMARK        &kp FSLH        &kp MINUS        &kp CARET        &kp AMPS        &kp TAB          &kp BACKSPACE &kp RBKT        &kp GT        &kp DQT &kp UNDER   &kp RBRC     &kp RCTRL
             >;
         };
 
