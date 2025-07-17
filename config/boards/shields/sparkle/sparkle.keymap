@@ -59,8 +59,8 @@
         shiftnav_layer {
             label = "SHIFTNAV";
             bindings = <
-                &kp ESC          &mt LSHIFT Q   &mt LSHIFT W   &mt LSHIFT E   &mt LSHIFT R   &mt LSHIFT T   &none        &mo SYM        &mt LSHIFT Y   &mt LSHIFT U    &mt LSHIFT I    &mt LSHIFT O   &mt LSHIFT P   &mt LANG2
-                &kp LEFT_ALT     &mt LSHIFT A   &mt LSHIFT S   &mt LSHIFT D   &mt LSHIFT F   &mt LSHIFT G   &kp SPACE    &kp ENTER      &mt LSHIFT H   &mt LSHIFT J    &mt LSHIFT K    &mt LSHIFT L   &kp UP         &mt LANG1
+                &kp ESC          &mt LSHIFT Q   &mt LSHIFT W   &mt LSHIFT E   &mt LSHIFT R   &mt LSHIFT T   &none        &mo SYM        &mt LSHIFT Y   &mt LSHIFT U    &mt LSHIFT I    &mt LSHIFT O   &mt LSHIFT P   &kp LANG2
+                &kp LEFT_ALT     &mt LSHIFT A   &mt LSHIFT S   &mt LSHIFT D   &mt LSHIFT F   &mt LSHIFT G   &kp SPACE    &kp ENTER      &mt LSHIFT H   &mt LSHIFT J    &mt LSHIFT K    &mt LSHIFT L   &kp UP         &kp LANG1
                 &kp LEFT_GUI     &mt LSHIFT Z   &mt LSHIFT X   &mt LSHIFT C   &mt LSHIFT V   &mt LSHIFT B   &kp TAB      &kp BACKSPACE  &mt LSHIFT N   &mt LSHIFT M    &kp RIGHT       &kp DOWN        &kp LEFT      &kp  RCTRL
             >;
         };
