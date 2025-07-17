@@ -55,13 +55,12 @@
             >;
         };
 
-
         shiftnav_layer {
             label = "SHIFTNAV";
             bindings = <
-                &kp ESC          &mt LSHIFT Q   &mt LSHIFT W   &mt LSHIFT E   &mt LSHIFT R   &mt LSHIFT T   &none        &mo SYM        &mt LSHIFT Y   &mt LSHIFT U    &mt LSHIFT I    &mt LSHIFT O   &mt LSHIFT P   &kp LANG2
-                &kp LEFT_ALT     &mt LSHIFT A   &mt LSHIFT S   &mt LSHIFT D   &mt LSHIFT F   &mt LSHIFT G   &kp SPACE    &kp ENTER      &mt LSHIFT H   &mt LSHIFT J    &mt LSHIFT K    &mt LSHIFT L   &kp UP         &kp LANG1
-                &kp LEFT_GUI     &mt LSHIFT Z   &mt LSHIFT X   &mt LSHIFT C   &mt LSHIFT V   &mt LSHIFT B   &kp TAB      &kp BACKSPACE  &mt LSHIFT N   &mt LSHIFT M    &kp RIGHT       &kp DOWN        &kp LEFT      &kp  RCTRL
+                &kp ESC          &kp LS(Q)   &kp LS(W)   &kp LS(E)   &kp LS(R)   &kp LS(T)   &none        &mo SYM        &kp LS(Y)   &kp LS(U)    &kp LS(I)    &kp LS(O)   &kp LS(P)   &kp LANG2
+                &kp LEFT_ALT     &kp LS(A)   &kp LS(S)   &kp LS(D)   &kp LS(F)   &kp LS(G)   &kp SPACE    &kp ENTER      &kp LS(H)   &kp LS(J)    &kp LS(K)    &kp LS(L)   &kp UP      &kp LANG1
+                &kp LEFT_GUI     &kp LS(Z)   &kp LS(X)   &kp LS(C)   &kp LS(V)   &kp LS(B)   &kp TAB      &kp BACKSPACE  &kp LS(N)   &kp LS(M)    &kp LEFT     &kp DOWN    &kp RIGHT   &kp RCTRL
             >;
         };
 
